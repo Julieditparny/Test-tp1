@@ -33,7 +33,7 @@ Interval.prototype.includes = function (interval) {
  */
 Interval.prototype.union = function (interval) {
 	var res = [];
-	if(this.overlaps(interval)){
+	/*if(this.overlaps(interval)){
 		res.push(new Interval(Math.min(interval.start,this.start),Math.max(interval.end,this.end)));
 	}else{
 		if(this.start <= interval.start){
@@ -43,8 +43,7 @@ Interval.prototype.union = function (interval) {
 			res.push(interval);
 			res.push(this);
 		}
-
-	}
+	}*/
 	return res;
 };
 
