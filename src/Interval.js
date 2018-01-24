@@ -32,10 +32,19 @@ Interval.prototype.includes = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.union = function (interval) {
-		if(this.overlaps(interval))
-		return new Interval(Math.min(this.start,interval.start),Math.max(this.end,interval.end));
-	else
-throw "Infaisable";
+	var res = [];
+	if(this.overlaps(interval)){
+		res.push(new Interval(Math.min(interval.start,this.start),Math.max(interval.end,this.end)));
+	}else{
+		if(this.start <= interval.start){
+			res.push(this);
+			res.push(interval);
+		}else{
+			res.push(interval);
+			res.push(this);
+		}
+	}
+	return res;
 };
 
 /**
@@ -57,10 +66,10 @@ Interval.prototype.intersection = function (interval) {
  */
 Interval.prototype.exclusion = function (interval) {
 	var res = [];
-	if(this.overlaps(interval))
+	if(this.overlaps(interval)){
 		res.push(new Interval(Math.min(interval.start,this.start),Math.max(interval.start,this.start)));
 		res.push(new Interval(Math.min(interval.end,this.end),Math.max(interval.end,this.end)));
-	else{
+	}else{
 		if(this.start <= interval.start){
 			res.push(this);
 			res.push(interval);
