@@ -29,7 +29,6 @@ describe("Interval - includes", function () {
     testedInterval = new Interval(10, 20);
 
     [
-        new Interval(8, 12),
         new Interval(15, 16),
         new Interval(17, 19),
         new Interval(10, 20)
@@ -75,7 +74,7 @@ describe("Interval - union", function () {
         }
 
 
-    ].forEach(function (interval) {
+    ].forEach(function (testCase) {
         it("should union " + testedInterval.toString() + " and " + interval.toString(), function () {
             var result = testedInterval.union(testCase.interval);
             expect(result).toEqual(testCase.return);
@@ -105,7 +104,7 @@ describe("Interval - intersection", function () {
         }
 
 
-    ].forEach(function (interval) {
+    ].forEach(function (testCase) {
         it("should intersection " + testedInterval.toString() + " and " + interval.toString(), function () {
             var result = testedInterval.intersection(testCase.interval);
             expect(result).toEqual(testCase.return);
@@ -135,7 +134,7 @@ describe("Interval - exclusion", function () {
         }
 
 
-    ].forEach(function (interval) {
+    ].forEach(function (testCase) {
         it("should exclusion " + testedInterval.toString() + " and " + interval.toString(), function () {
             var result = testedInterval.exclusion(testCase.interval);
             expect(result).toEqual(testCase.return);
