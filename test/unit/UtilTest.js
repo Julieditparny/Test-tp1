@@ -240,7 +240,7 @@ describe("SumPrime", function(){
 
     it("should raise an exception when n is not an integer", function(){
         var f = function(){
-            Util.isPrime('test');
+            Util.sumPrime('test');
         }
         expect(f).toThrow('Unable to compute sumPrime of non integer values');
     });
