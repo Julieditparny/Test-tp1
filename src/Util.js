@@ -38,8 +38,8 @@ Util.arrangement = function(n, r) {
         throw 'Unable to compute arrangement for n < 0'
     }
 
-    if (n === r) {
-        throw 'Unable to compute arrangement for n = r'
+    if (n <= r) {
+        throw 'Unable to compute arrangement for n <= r'
     }
 
     if (!(typeof n === "number") || Math.floor(n) !== n) {
@@ -68,8 +68,8 @@ Util.combination = function(n, r) {
         throw 'Unable to compute combination for r < 0'
     }
 
-    if (n === r) {
-        throw 'Unable to compute combination for n = r'
+    if (n <= r) {
+        throw 'Unable to compute combination for n <= r'
     }
 
     if (!(typeof n === "number") ||  Math.floor(n) !== n) {
@@ -193,5 +193,16 @@ Util.fizzBuzz = function(n) {
  * @returns {string}
  */
 Util.cipher = function (phrase) {
-
+	var tab = phrase.split('');
+	for(var i=0;i<tab.length;i++)
+	{
+		var car = tab[i];
+		if((car >= 'A' && car <= 'Z') || (car >= 'a' && car <= 'z'))
+		{
+			tab[i] = String.fromCharCode(car.charCodeAt(0)+1).charAt(0);
+		}
+	}
+	var ret = tab.join("");
+	console.log(ret);
+return ret;
 };

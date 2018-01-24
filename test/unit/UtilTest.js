@@ -85,11 +85,11 @@ describe("Arrangement", function(){
         expect(f).toThrow('Unable to compute arrangement for n < 0');
     });
 
-    it("should raise an exception when n = r", function(){
+    it("should raise an exception when n <= r", function(){
         var f = function(){
             Util.arrangement(5,5);
         }
-        expect(f).toThrow('Unable to compute arrangement for n = r');
+        expect(f).toThrow('Unable to compute arrangement for n <= r');
     });
 
     it("should raise an exception when n is not an integer", function(){
@@ -147,11 +147,11 @@ describe("Combination", function(){
         expect(f).toThrow('Unable to compute combination for r < 0');
     });
 
-    it("should raise an exception when r = n", function(){
+    it("should raise an exception when n <= r", function(){
         var f = function(){
             Util.combination(5,5);
         }
-        expect(f).toThrow('Unable to compute combination for n = r');
+        expect(f).toThrow('Unable to compute combination for n <= r');
     });
 
     it("should raise an exception when n is not an integer", function(){
