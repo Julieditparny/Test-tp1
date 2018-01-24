@@ -88,19 +88,19 @@ describe("Interval - intersection", function () {
     var testCases = [
         {
             interval: new Interval(8, 12),
-            return: [new Interval(10,12)]
+            return: new Interval(10,12)
         },
         {
             interval: new Interval(15, 16),
-            return: [new Interval(15,16)]
+            return: new Interval(15,16)
         },
         {
             interval: new Interval(2,6),
-            return: [new Interval(2,6),new Interval(10,20)]
+            return: null
         },
         {
             interval: new Interval(26,100),
-            return: [new Interval(10,20),new Interval(26,100)]
+            return: null
         }
 
 
