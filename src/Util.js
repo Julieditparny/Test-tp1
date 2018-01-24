@@ -141,7 +141,7 @@ Util.sumPrime = function(n) {
 	var res = 0;
 	for(i=2; i<=n; i++){
 		if(Util.isPrime(i)){
-			res += i;
+			res = res + i;
 		}
 	}
 	return res;

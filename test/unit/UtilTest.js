@@ -225,9 +225,9 @@ describe("SumPrime", function(){
     ];
 
     testCases.forEach(function(testCase){
-        it("should returns " + testCase.return + " when n = " + testCase.n, function(){
+        it("should returns " + testCase.sumPrime + " when n = " + testCase.n, function(){
             var result = Util.sumPrime(testCase.n);
-            expect(result).toEqual(testCase.return);
+            expect(result).toEqual(testCase.sumPrime);
         })
     });
 
