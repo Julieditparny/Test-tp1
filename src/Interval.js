@@ -23,7 +23,7 @@ Interval.prototype.overlaps = function (interval) {
  * @returns {boolean}
  */
 Interval.prototype.includes = function (interval) {
-
+	return interval.start >= this.start && interval.end <= this.end;
 };
 
 /**
@@ -32,7 +32,19 @@ Interval.prototype.includes = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.union = function (interval) {
-
+	var res = [];
+	if(this.overlaps(interval)){
+		res.push(new Interval(Math.min(interval.start,this.start),Math.max(interval.end,this.end)));
+	}else{
+		if(this.start <= interval.start){
+			res.push(this);
+			res.push(interval);
+		}else{
+			res.push(interval);
+			res.push(this);
+		}
+	}
+	return res;
 };
 
 /**
@@ -41,7 +53,10 @@ Interval.prototype.union = function (interval) {
  * @returns {Interval|null}
  */
 Interval.prototype.intersection = function (interval) {
-
+	if(!this.overlaps(interval))	
+		return null
+	else
+		return new Interval(Math.max(interval.start,this.start),Math.min(interval.end,this.end));
 };
 
 /**
@@ -50,7 +65,21 @@ Interval.prototype.intersection = function (interval) {
  * @returns {Interval[]}
  */
 Interval.prototype.exclusion = function (interval) {
+	var res = [];
 
+	if(this.overlaps(interval)){
+		res.push(new Interval(Math.min(interval.start,this.start),Math.max(interval.start,this.start)));
+		res.push(new Interval(Math.min(interval.end,this.end),Math.max(interval.end,this.end)));
+	}else{
+		if(this.start <= interval.start){
+			res.push(this);
+			res.push(interval);
+		}else{
+			res.push(interval);
+			res.push(this);
+		}
+	}
+	return res;
 };
 
 
