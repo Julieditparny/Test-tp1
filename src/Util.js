@@ -42,9 +42,12 @@ Util.arrangement = function(n, r) {
         throw 'Unable to compute arrangement for n = r'
     }
 
-    if (!(typeof n === "number") || !(typeof r === "number") || Math.floor(n) !== n || Math.floor(r) !== r) {
+    if (!(typeof n === "number") || Math.floor(n) !== n) {
         throw 'Unable to compute arrangement of non integer values'
     }
+
+    if(!(typeof r === "number") || Math.floor(r) !== r)
+		throw 'Unable to compute arrangement of non integer values'
 
 	return Util.factorial(n) / Util.factorial(n - r);
 };
@@ -69,8 +72,12 @@ Util.combination = function(n, r) {
         throw 'Unable to compute combination for n = r'
     }
 
-    if (!(typeof n === "number") || !(typeof r === "number") || Math.floor(n) !== n || Math.floor(r) !== r) {
+    if (!(typeof n === "number") ||  Math.floor(n) !== n) {
         throw 'Unable to compute combination of non integer values'
+    }
+
+    if(!(typeof r === "number") || Math.floor(r) !== r){
+    	throw 'Unable to compute combination of non integer values'
     }
 
 	return Util.factorial(n) / (Util.factorial(n - r) * Util.factorial(r));
@@ -87,6 +94,10 @@ Util.combination = function(n, r) {
 Util.isPrime = function(n) {
 	if (!(typeof n === "number")) {
         throw 'Unable to compute isPrime of non integer values'
+    }
+
+    if (n < 0) {
+        throw 'Unable to compute isPrime for n < 0'
     }
 
 	if(n === 2 || n === 1)
