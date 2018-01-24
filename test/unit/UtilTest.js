@@ -208,6 +208,44 @@ describe("IsPrime", function(){
     });
 });
 
+describe("SumPrime", function(){
+    var testCases = [
+        {
+            n : 6,
+            sumPrime: 10
+        },
+        {
+            n : 8,
+            sumPrime: 17
+        },
+        {
+            n : 9,
+            sumPrime: 17
+        }
+    ];
+
+    testCases.forEach(function(testCase){
+        it("should returns " + testCase.return + " when n = " + testCase.n, function(){
+            var result = Util.sumPrime(testCase.n);
+            expect(result).toEqual(testCase.return);
+        })
+    });
+
+    it("should raise an exception when n < 0", function(){
+        var f = function(){
+            Util.sumPrime(-1);
+        }
+        expect(f).toThrow('Unable to compute sumPrime for n < 0');
+    });
+
+    it("should raise an exception when n is not an integer", function(){
+        var f = function(){
+            Util.isPrime('test');
+        }
+        expect(f).toThrow('Unable to compute sumPrime of non integer values');
+    });
+});
+
 describe("FizzBuzz", function(){
     var testCases = [
         {

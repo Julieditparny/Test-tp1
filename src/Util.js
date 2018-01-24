@@ -130,7 +130,21 @@ Util.isPrime = function(n) {
  * @returns {number}
  */
 Util.sumPrime = function(n) {
-	
+	if (!(typeof n === "number")) {
+        throw 'Unable to compute sumPrime of non integer values'
+    }
+
+    if (n < 0) {
+        throw 'Unable to compute sumPrime for n < 0'
+    }
+
+	var res = 0;
+	for(i=2; i<=n; i++){
+		if(Util.isPrime(i)){
+			res += i;
+		}
+	}
+	return res;
 };
 
 /**
