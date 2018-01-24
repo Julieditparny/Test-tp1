@@ -31,7 +31,7 @@ Interval.prototype.includes = function (interval) {
  * @param {Interval} interval
  * @returns {Interval[]}
  */
-Interval.prototype.includes = function (interval) {
+Interval.prototype.union = function (interval) {
 	var res = [];
 	if(this.overlaps(interval)){
 		res.push(new Interval(Math.min(interval.start,this.start),Math.max(interval.end,this.end)));
