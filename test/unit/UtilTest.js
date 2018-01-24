@@ -142,7 +142,7 @@ describe("Combination", function(){
 
     it("should raise an exception when r < 0", function(){
         var f = function(){
-            Util.combination(-1,5);
+            Util.combination(5,-5);
         }
         expect(f).toThrow('Unable to compute combination for r < 0');
     });
@@ -197,14 +197,14 @@ describe("IsPrime", function(){
         var f = function(){
             Util.isPrime(-1);
         }
-        expect(f).toThrow('Unable to compute combination for n < 0');
+        expect(f).toThrow('Unable to compute isPrime for n < 0');
     });
 
     it("should raise an exception when n is not an integer", function(){
         var f = function(){
             Util.isPrime('test');
         }
-        expect(f).toThrow('Unable to compute combination of non integer values');
+        expect(f).toThrow('Unable to compute isPrime of non integer values');
     });
 });
 
@@ -235,13 +235,13 @@ describe("FizzBuzz", function(){
         var f = function(){
             Util.fizzBuzz(-1);
         }
-        expect(f).toThrow('Unable to compute combination for n < 0');
+        expect(f).toThrow('Unable to compute fizzBuzz for n < 0');
     });
 
     it("should raise an exception when n is not an integer", function(){
         var f = function(){
             Util.fizzBuzz('test');
         }
-        expect(f).toThrow('Unable to compute combination of non integer values');
+        expect(f).toThrow('Unable to compute fizzBuzz of non integer values');
     });
 });

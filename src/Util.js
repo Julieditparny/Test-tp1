@@ -107,7 +107,7 @@ Util.isPrime = function(n) {
     	return false;
   
   	var racine=Math.sqrt(n);
-  	if(Number.isInteger(n))
+  	if(Number.isInteger(racine))
     	return false;
 
   	for(var i=3; i<racine; i+=2){
@@ -165,6 +165,8 @@ Util.fizzBuzz = function(n) {
 			res[i-1]=i;
 		}
 	}
+
+	return res;
 };
 
 /**
